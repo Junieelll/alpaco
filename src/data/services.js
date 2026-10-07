@@ -1,0 +1,58 @@
+import { Home, Mountain, Layers, Hammer, Shovel, Truck } from "lucide-react";
+
+export const services = [
+  {
+    id: "roofing",
+    icon: Home,
+    title: "Roofing Supply & Installation",
+    description: "Roofing materials supplied and installed.",
+    tag: "Supply & installation",
+    image: "/images/service-roofing.webp",
+    alt: "Roofing Supply & Installation",
+  },
+  {
+    id: "gravel-sand",
+    icon: Mountain,
+    title: "Gravel & Sand Supply",
+    description: "Gravel and sand for construction and development work.",
+    tag: "Materials",
+    image: "/images/service-gravel.webp",
+    alt: "Gravel & Sand Supply",
+  },
+  {
+    id: "embankment",
+    icon: Layers,
+    title: "Embankment Materials",
+    description: "Lastillas, adobe, broken kalsada and broken debris.",
+    tag: "Materials",
+    image: "/images/embankment.jpg",
+    alt: "Embankment Materials",
+  },
+  {
+    id: "demolition",
+    icon: Hammer,
+    title: "Demolition",
+    description: "Demolition work for sites that need clearing.",
+    tag: "Site works",
+    image: "/images/service-demolition.webp",
+    alt: "Demolition Site Operations",
+  },
+  {
+    id: "excavation",
+    icon: Shovel,
+    title: "Excavation",
+    description: "Excavation work to prepare your site.",
+    tag: "Site works",
+    image: "/images/gallery/img-2.webp",
+    alt: "Excavation and Site Preparation",
+  },
+  {
+    id: "hauling-trucking",
+    icon: Truck,
+    title: "Hauling & Trucking",
+    description: "Hauling and trucking for materials and project needs.",
+    tag: "Logistics",
+    image: "/images/service-trucking.webp",
+    alt: "Hauling & Trucking Operations",
+  },
+];

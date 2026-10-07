@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #12402C;
+  --color-deep: #0A2A1D;
+  --color-mid: #2E6B45;
+  --color-sage: #E7EEE6;
+  --color-gold: #EDAA1C;
+  --color-paper: #F6F5F0;
+  --color-ink: #1C2321;
+  --color-muted: #56615B;
+
+  --font-sans: "Archivo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #F6F5F0;
+    color: #1C2321;
+    font-family: "Archivo", system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.it {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: 0;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
