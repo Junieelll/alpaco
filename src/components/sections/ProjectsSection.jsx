@@ -10,7 +10,7 @@ import {
   wordsGroup,
   Words,
   useInViewProps,
-} from "../motionPresets";
+} from "../MotionPresets";
 
 export default function ProjectsSection() {
   const featuredProject = projects.find((p) => p.featured) || projects[0];

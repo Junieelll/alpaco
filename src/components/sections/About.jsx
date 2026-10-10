@@ -8,7 +8,7 @@ import {
   wordsGroupFast,
   Words,
   useInViewProps,
-} from "../motionPresets";
+} from "../MotionPresets";
 
 export default function About() {
   const inView = useInViewProps(0.25);

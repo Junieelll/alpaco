@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ServiceCard from "../ServiceCard";
 import { services } from "../../data/services";
-import { EASE, group, fadeUp, wordsGroup, Words, useInViewProps } from "../motionPresets";
+import { EASE, group, fadeUp, wordsGroup, Words, useInViewProps } from "../MotionPresets";
 
 // The scrolling track fades and rises in as one piece (cards inside keep their own snap layout)
 const trackIn = {

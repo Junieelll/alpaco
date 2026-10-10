@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { MapPin, Phone, Mail, Copy, Check } from "lucide-react";
 import { siteConfig } from "../data/site";
-import { EASE, fadeUp, wordsGroup, Words, useInViewProps } from "./motionPresets";
+import { EASE, fadeUp, wordsGroup, Words, useInViewProps } from "./MotionPresets";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Facebook02Icon,

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import GalleryGrid from "../GalleryGrid";
 import { featuredGalleryItems } from "../../data/gallery";
-import { group, fadeUp, wordsGroup, Words, useInViewProps } from "../motionPresets";
+import { group, fadeUp, wordsGroup, Words, useInViewProps } from "../MotionPresets";
 
 export default function GallerySection() {
   const inView = useInViewProps(0.3);
