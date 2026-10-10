@@ -1,25 +1,39 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import GalleryGrid from "../GalleryGrid";
-import Reveal from "../Reveal";
+import { featuredGalleryItems } from "../../data/gallery";
+import { group, fadeUp, wordsGroup, Words, useInViewProps } from "../motionPresets";
 
 export default function GallerySection() {
+  const inView = useInViewProps(0.3);
+
   return (
     <section id="gallery" className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
-      {/* Header */}
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <Reveal y={20}>
-          <div>
-            <p className="mb-3 flex items-center gap-2 text-xs font-semibold text-forest">
-              <span className="h-2 w-2 rounded-full bg-mid" />
-              Gallery
-            </p>
-            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
-              From <span className="it">the field</span>
-            </h2>
-          </div>
-        </Reveal>
-        <Reveal y={20} delay={0.1}>
+      <motion.div
+        className="flex flex-wrap items-end justify-between gap-6"
+        variants={group}
+        {...inView}
+      >
+        <div>
+          <motion.p
+            variants={fadeUp}
+            className="mb-3 flex items-center gap-2 text-xs font-semibold text-forest"
+          >
+            <span className="h-2 w-2 rounded-full bg-mid" />
+            Gallery
+          </motion.p>
+          <motion.h2
+            variants={wordsGroup}
+            aria-label="From the field"
+            className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
+          >
+            <span aria-hidden="true">
+              <Words text="From" /> <Words text="the field" className="it" />
+            </span>
+          </motion.h2>
+        </div>
+        <motion.div variants={fadeUp}>
           <Link
             to="/gallery"
             className="group inline-flex items-center gap-1 border-b border-forest pb-0.5 text-sm font-semibold text-forest transition-colors hover:border-mid hover:text-mid"
@@ -30,13 +44,13 @@ export default function GallerySection() {
               strokeWidth={2.2}
             />
           </Link>
-        </Reveal>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* Grid */}
-      <Reveal y={24} duration={0.7} delay={0.15}>
-        <GalleryGrid />
-      </Reveal>
+      {/* Tiles already cascade in on their own inside GalleryGrid */}
+      <div className="mt-10">
+        <GalleryGrid items={featuredGalleryItems} masonry={false} />
+      </div>
     </section>
   );
 }

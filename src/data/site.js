@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Materials, site works and hauling, from one company",
   description: "ALPACO Diversified Development OPC is a Philippine contractor, supplier and trucking company: roofing, gravel and sand, embankment materials, demolition, excavation and hauling.",
   categorySubtitle: "Contractor · Supplier · Trucking",
-  phone: "0935 350 9827",
+  phone: "0935 350 9827 ", 
   email: "alpacodiversifieddevelopment@gmail.com",
   address: "Blk25 Lot04 Victoria St. Somerset 14, Lancaster General Trias, Cavite ",
   facebook: "[CONTENT NEEDED: Facebook page]",

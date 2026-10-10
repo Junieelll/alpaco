@@ -1,8 +1,15 @@
 import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ServiceCard from "../ServiceCard";
 import { services } from "../../data/services";
-import Reveal from "../Reveal";
+import { EASE, group, fadeUp, wordsGroup, Words, useInViewProps } from "../motionPresets";
+
+// The scrolling track fades and rises in as one piece (cards inside keep their own snap layout)
+const trackIn = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE, delay: 0.2 } },
+};
 
 const AUTOPLAY_MS = 3500; // time between automatic moves
 const IDLE_MS = 5000; // idle time before autoplay resumes
@@ -11,6 +18,8 @@ const n = services.length;
 const looped = [0, 1, 2].flatMap((copy) => services.map((service) => ({ service, copy })));
 
 export default function ServicesCarousel() {
+  const headerInView = useInViewProps(0.3);
+  const trackInView = useInViewProps(0.15);
   const trackRef = useRef(null);
   const lastTouch = useRef(0);
 
@@ -93,53 +102,64 @@ export default function ServicesCarousel() {
 
   return (
     <section id="services" className="pb-20 lg:pb-24">
-      <div className="mx-auto flex max-w-7xl items-end justify-between gap-6 px-5 sm:px-8">
-        <Reveal y={20}>
-          <div>
-            <p className="mb-3 flex items-center gap-2 text-xs font-semibold text-forest">
-              <span className="h-2 w-2 rounded-full bg-mid" />
-              Our services
-            </p>
-            <h2 className="max-w-md text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
-              Everything your <span className="it">site needs</span>
-            </h2>
-          </div>
-        </Reveal>
+      <motion.div
+        className="mx-auto flex max-w-7xl items-end justify-between gap-6 px-5 sm:px-8"
+        variants={group}
+        {...headerInView}
+      >
+        <div>
+          <motion.p
+            variants={fadeUp}
+            className="mb-3 flex items-center gap-2 text-xs font-semibold text-forest"
+          >
+            <span className="h-2 w-2 rounded-full bg-mid" />
+            Our services
+          </motion.p>
+          <motion.h2
+            variants={wordsGroup}
+            aria-label="Everything your site needs"
+            className="max-w-md text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
+          >
+            <span aria-hidden="true">
+              <Words text="Everything your" /> <Words text="site needs" className="it" />
+            </span>
+          </motion.h2>
+        </div>
 
-        <Reveal y={20} delay={0.1}>
-          <div className="hidden items-center gap-6 md:flex">
-            <p className="max-w-[16rem] text-right text-sm text-muted">
-              Supply, site works and hauling, handled by one team.
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onArrow(-1)}
-                className="grid h-10 w-10 place-items-center rounded-full border border-forest/30 text-forest transition hover:bg-forest hover:text-white active:scale-95"
-                aria-label="Previous service"
-              >
-                <ChevronLeft className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-              <button
-                onClick={() => onArrow(1)}
-                className="grid h-10 w-10 place-items-center rounded-full bg-forest text-white transition hover:bg-deep active:scale-95"
-                aria-label="Next service"
-              >
-                <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-            </div>
+        <motion.div variants={fadeUp} className="hidden items-center gap-6 md:flex">
+          <p className="max-w-[16rem] text-right text-sm text-muted">
+            Supply, site works and hauling, handled by one team.
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => onArrow(-1)}
+              className="grid h-10 w-10 place-items-center rounded-full border border-forest/30 text-forest transition hover:bg-forest hover:text-white active:scale-95"
+              aria-label="Previous service"
+            >
+              <ChevronLeft className="h-4 w-4" strokeWidth={2.5} />
+            </button>
+            <button
+              onClick={() => onArrow(1)}
+              className="grid h-10 w-10 place-items-center rounded-full bg-forest text-white transition hover:bg-deep active:scale-95"
+              aria-label="Next service"
+            >
+              <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
+            </button>
           </div>
-        </Reveal>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Infinite track: cards snap to the container's left edge (aligned with the heading) */}
-      <div
+      <motion.div
         ref={trackRef}
+        variants={trackIn}
+        {...trackInView}
         className="scrollbar-none relative mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 scroll-pl-5 sm:px-8 sm:scroll-pl-8 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:scroll-pl-[max(2rem,calc((100vw-80rem)/2+2rem))]"
       >
         {looped.map(({ service, copy }) => (
           <ServiceCard key={`${copy}-${service.id}`} service={service} ariaHidden={copy !== 1} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

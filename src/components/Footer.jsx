@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { siteConfig } from "../data/site";
-import alpacoLogo from "../assets/alpaco-logo.png";
 
 const contacts = [
   { icon: MapPin, label: siteConfig.address },
@@ -24,8 +23,8 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3">
             {/* White chip keeps the green/gold logo readable on the dark footer */}
-            <span className="gridshrink-0 place-items-center rounded-xl bg-white p-1.5">
-              <img src={alpacoLogo} alt="ALPACO logo" className="h-25 w-full object-contain" />
+            <span className="gridshrink-0 place-items-center p-1.5">
+              <img src="/alpaco-horizontal-logo.png" alt="ALPACO logo" className="h-25 w-full object-contain" />
             </span>
             
           </div>

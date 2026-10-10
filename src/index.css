@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #12402C;
-  --color-deep: #0A2A1D;
-  --color-mid: #2E6B45;
-  --color-sage: #E7EEE6;
+  --color-forest: #3F8A2E;
+  --color-deep: #2F6A22;
+  --color-mid: #8FD16B;
+  --color-sage: #E2F4D4;
   --color-gold: #EDAA1C;
-  --color-paper: #F6F5F0;
+  --color-paper: #F6FBEF;
   --color-ink: #1C2321;
   --color-muted: #56615B;
 
   --font-sans: "Archivo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
+  --font-poppins: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @layer base {
@@ -20,7 +21,7 @@
   }
 
   body {
-    background-color: #F6F5F0;
+    background-color: #F6FBEF;
     color: #1C2321;
     font-family: "Archivo", system-ui, sans-serif;
     margin: 0;
@@ -34,6 +35,22 @@
     display: flex;
     flex-direction: column;
   }
+}
+
+/* Small text elements and classes use Poppins */
+small,
+.text-xs:not(.it):not(.font-serif),
+.text-sm:not(.it):not(.font-serif),
+.text-\[11px\]:not(.it):not(.font-serif),
+.text-\[12px\]:not(.it):not(.font-serif),
+.text-\[13px\]:not(.it):not(.font-serif),
+.text-\[14px\]:not(.it):not(.font-serif),
+.text-\[15px\]:not(.it):not(.font-serif) {
+  font-family: var(--font-poppins);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
 }
 
 .it {
