@@ -58,13 +58,13 @@ export default function ProjectsSection() {
         </motion.div>
       </motion.div>
 
-      {/* Grid — featured card first, then the others cascade in behind it */}
-      <div className="mt-10 grid gap-5 lg:grid-cols-[7fr_5fr]">
+      {/* Grid — featured card left, compact secondary cards right */}
+      <div className="mt-10 grid gap-5 lg:grid-cols-[7fr_5fr] items-start">
         <motion.div variants={cardIn} custom={0} {...cardInView}>
           <ProjectCard project={featuredProject} isFeatured={true} />
         </motion.div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col justify-between gap-5 lg:gap-6">
           {secondaryProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -72,7 +72,7 @@ export default function ProjectsSection() {
               custom={index + 1}
               {...cardInView}
             >
-              <ProjectCard project={project} isFeatured={false} />
+              <ProjectCard project={project} compact={true} />
             </motion.div>
           ))}
         </div>

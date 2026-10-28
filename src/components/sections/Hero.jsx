@@ -112,7 +112,7 @@ function TypedHeading({ reduce }) {
   return (
     <h1
       aria-label={HEADLINE_FULL}
-      className="max-w-3xl text-[2.5rem] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
+      className="max-w-3xl text-[2.5rem] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-6.5xl"
     >
       <span aria-hidden="true">
         {HEADLINE_RANGES.map((seg, i) => {

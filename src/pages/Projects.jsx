@@ -9,24 +9,13 @@ export default function Projects() {
     <div className="min-h-screen bg-paper font-sans text-[16px] leading-relaxed text-ink antialiased">
       <PageHeader
         badge="Projects & Portfolio"
-        title="Selected"
-        italicTitle="projects & works"
-        subtitle="Demolition, site excavation, and materials supply in the Philippines."
+        title="Our"
+        italicTitle="completed works"
+        subtitle="Explore our proven track record across demolition, excavation, material supply, and construction projects throughout the Philippines."
       />
 
       <main className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
-        <Reveal y={16}>
-          <div className="mb-8 rounded-2xl border border-dashed border-forest/30 bg-sage/40 p-5">
-            <span className="text-xs font-bold uppercase tracking-wider text-forest">
-              Placeholder Notice
-            </span>
-            <p className="mt-1 text-sm text-muted">
-              [CONTENT NEEDED: Real project names, locations, and descriptions will be populated once supplied by client.]
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <Reveal key={project.id} y={24} duration={0.6} delay={0.08 * index}>
               <ProjectCard project={project} isFeatured={false} />

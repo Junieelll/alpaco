@@ -298,9 +298,9 @@ export default function About() {
                     style={reduce ? undefined : { y: heroShift, scale: 1.14 }}
                   >
                     <MediaImage
-                      src="/images/about-construction.jpg"
+                      src="/alpaco-logo.png"
                       alt="Construction materials and site operations"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain pt-5"
                     />
                   </motion.div>
                 </motion.div>
